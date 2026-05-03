@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+/* ================= GLOBAL RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --text: #d1d5db;
+  --text-h: #ffffff;
+  --bg: #000000;
+  --border: #27272a;
+
+  --purple: #9333ea;
+  --pink: #ec4899;
+  --red: #ef4444;
+
+  --shadow-purple: rgba(147, 51, 234, 0.5);
+}
+
+/* ================= BODY ================= */
+
+body {
+  background: radial-gradient(
+    circle at top,
+    rgba(147, 51, 234, 0.15),
+    #000 40%
+  );
+  color: white;
+}
+
+/* ================= ROOT ================= */
+
+#root {
+  width: 100%;
+}
+
+/* ================= HEADINGS ================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-weight: bold;
+}
+
+/* ================= CUSTOM SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--purple),
+    var(--pink)
+  );
+  border-radius: 20px;
+}
+
+/* ================= NAVBAR ANIMATION ================= */
+
+nav {
+  backdrop-filter: blur(14px);
+  animation: navbarSlide 1s ease;
+}
+
+@keyframes navbarSlide {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= HERO HEADING ANIMATION ================= */
+
+.hero-title {
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}
+
+/* ================= FLOATING EFFECT ================= */
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ================= GLOW EFFECT ================= */
+
+.glow {
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.6),
+    0 0 20px rgba(168, 85, 247, 0.5),
+    0 0 40px rgba(168, 85, 247, 0.3);
+}
+
+/* ================= CARD EFFECT ================= */
+
+.card {
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    0 0 25px rgba(168, 85, 247, 0.35),
+    0 0 50px rgba(236, 72, 153, 0.2);
+}
+
+/* ================= BUTTON EFFECT ================= */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.5),
+    0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.15);
+  top: 0;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* ================= IMAGE EFFECT ================= */
+
+img {
+  transition: all 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+/* ================= FADE IN ANIMATION ================= */
+
+.fade-in {
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= SECTION SPACING ================= */
+
+section {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 40px !important;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  section {
+    padding-inline: 20px;
+  }
+}
